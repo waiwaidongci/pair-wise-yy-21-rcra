@@ -1,1 +1,18 @@
-export const createFaultReportDto = (overrides = {}) => ({ id: 1, reporter_name: "reporter name 1", phone: "13800000001", asset_id: 1, fault_type: "VOLTAGE_LOW", address_desc: "address desc 1", severity: "severity 1", report_channel: "report channel 1", status: "ASSIGNED", ...overrides });
+import type { FaultReport } from "../models/FaultReport";
+
+export const createFaultReportDto = (overrides: Partial<FaultReport> = {}): FaultReport => ({
+  id: 0,
+  reporter_name: "",
+  phone: "",
+  asset_id: 0,
+  fault_type: "OUTAGE",
+  address_desc: "",
+  severity: "MEDIUM",
+  report_channel: "95598",
+  status: "OPEN",
+  reported_at: new Date().toISOString(),
+  merged_into_id: null,
+  ...overrides
+});
+
+export const createFaultReportVoidResult = (master: FaultReport, children: FaultReport[]) => ({ master, children });

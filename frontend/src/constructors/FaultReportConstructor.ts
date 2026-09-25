@@ -1,17 +1,35 @@
 import type { FaultReport } from "../types/FaultReport";
+import type { FaultReportPayload } from "../types/FaultReportPayload";
+
+export const SEVERITY_OPTIONS = ["LOW", "MEDIUM", "HIGH", "CRITICAL", "EXTREME"] as const;
+
+export const REPORT_CHANNEL_OPTIONS = ["95598 热线", "网上国网", "营业厅", "现场报修"] as const;
 
 export const createDefaultFaultReport = (overrides: Partial<FaultReport> = {}): FaultReport => ({
-  id: 1 as never,
-  reporter_name: "reporter name 1" as never,
-  phone: "13800000001" as never,
-  asset_id: 1 as never,
-  fault_type: "VOLTAGE_LOW" as never,
-  address_desc: "address desc 1" as never,
-  severity: "severity 1" as never,
-  report_channel: "report channel 1" as never,
-  status: "ASSIGNED" as never,
+  id: 0,
+  reporter_name: "",
+  phone: "",
+  asset_id: 0,
+  fault_type: "OUTAGE",
+  address_desc: "",
+  severity: "MEDIUM",
+  report_channel: REPORT_CHANNEL_OPTIONS[0],
+  status: "OPEN",
+  reported_at: "",
+  merged_into_id: null,
   ...overrides
 });
 
-export const createFaultReportForm = createDefaultFaultReport;
+export const createFaultReportForm = (overrides: Partial<FaultReportPayload> = {}): FaultReportPayload => ({
+  reporter_name: "",
+  phone: "",
+  asset_id: 0,
+  fault_type: "OUTAGE",
+  address_desc: "",
+  severity: "MEDIUM",
+  report_channel: REPORT_CHANNEL_OPTIONS[0],
+  reported_at: "",
+  ...overrides
+});
+
 export const createFaultReportResponse = createDefaultFaultReport;

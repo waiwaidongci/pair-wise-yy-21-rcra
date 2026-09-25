@@ -1,1 +1,1 @@
-export const createRepairTicketDto = (overrides = {}) => ({ id: 1, fault_report_id: 1, team_id: 1, dispatcher_id: 1, priority: "priority 1", status: "ASSIGNED", assigned_at: "2026-06-11T09:00:00Z", restored_at: "2026-06-11T09:00:00Z", ...overrides });
+export const createRepairTicketDto = (overrides = {}) => ({ id: 1, fault_report_id: 1, team_id: 1, dispatcher_id: 1, priority: "MEDIUM", status: "WAIT_DISPATCH", assigned_at: null, restored_at: null, ...overrides });

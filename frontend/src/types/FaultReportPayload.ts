@@ -3,8 +3,8 @@ export interface FaultReportPayload {
   phone: string;
   asset_id: number;
   fault_type: string;
-  address_desc?: string;
-  severity?: string;
-  report_channel?: string;
-  reported_at?: string;
+  address_desc: string;
+  severity: string;
+  report_channel: string;
+  reported_at: string;
 }

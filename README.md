@@ -2,6 +2,8 @@
 
 面向供电所的配网故障报修、抢修派工、备件领用和停电恢复跟踪平台。
 
+故障报修页为重复来电归并台：同一资产、同一故障类型且在主单首次来电后 30 分钟内的来电自动并入主单（各自来电人与时间保留在跟进记录中）；已派工的故障单不再接纳重复来电；主单作废时并入来电按来电顺序接续下一条作为主单，待派工工单跟随新主单。
+
 ## 快速启动
 
 ```bash
@@ -57,6 +59,8 @@ backend/src/routes, controllers, services, models, repositories, middlewares, co
 - FaultType: constants/FaultType、types/FaultType、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - TicketStatus: constants/TicketStatus、types/TicketStatus、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - AssetHealthStatus: constants/AssetHealthStatus、types/AssetHealthStatus、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
+- FaultReportStatus（OPEN/MERGED/VOID）: constants/FaultReportStatus、types/FaultReportStatus、constants/statusText、logTemplates、errorMessages、FaultReportService、FaultsPage 归并台均有引用。
+- MergeRules（MERGE_WINDOW_MINUTES=30、DISPATCH_LOCK_TICKET_STATUSES）: constants/MergeRules（前后端各一份）、FaultReportService、hooks/useFaultMerge、FaultsPage 均有引用。
 
 ## 为什么会牵一发动全身
 
