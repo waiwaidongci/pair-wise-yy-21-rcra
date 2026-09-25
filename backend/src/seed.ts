@@ -2,129 +2,174 @@ export const seed = {
   "gridAsset": [
     {
       "id": 1,
-      "asset_code": "asset code 1",
-      "asset_type": "VOLTAGE_LOW",
-      "feeder_line": "feeder line 1",
-      "voltage_level": "LOW",
-      "location_desc": "location desc 1",
-      "health_status": "ASSIGNED",
+      "asset_code": "JK-10-CDY-012",
+      "asset_type": "架空线路",
+      "feeder_line": "城东一线",
+      "voltage_level": "10kV",
+      "location_desc": "城东镇幸福小区门口 #12 杆",
+      "health_status": "WATCH",
       "owner_team_id": 1
     },
     {
       "id": 2,
-      "asset_code": "asset code 2",
-      "asset_type": "TRIP",
-      "feeder_line": "feeder line 2",
-      "voltage_level": "MEDIUM",
-      "location_desc": "location desc 2",
-      "health_status": "ARRIVED",
+      "asset_code": "HW-10-CX-007",
+      "asset_type": "环网柜",
+      "feeder_line": "城西二线",
+      "voltage_level": "10kV",
+      "location_desc": "城西工业园路口环网柜",
+      "health_status": "DEGRADED",
       "owner_team_id": 2
     },
     {
       "id": 3,
-      "asset_code": "asset code 3",
-      "asset_type": "EQUIPMENT_DAMAGE",
-      "feeder_line": "feeder line 3",
-      "voltage_level": "HIGH",
-      "location_desc": "location desc 3",
-      "health_status": "WAIT_DISPATCH",
+      "asset_code": "PB-10-NH-021",
+      "asset_type": "配电变压器",
+      "feeder_line": "南环支线",
+      "voltage_level": "10kV",
+      "location_desc": "南环村 #2 台区配变",
+      "health_status": "DANGEROUS",
       "owner_team_id": 3
     }
   ],
   "faultReport": [
     {
       "id": 1,
-      "reporter_name": "reporter name 1",
+      "reporter_name": "王桂香",
       "phone": "13800000001",
       "asset_id": 1,
       "fault_type": "VOLTAGE_LOW",
-      "address_desc": "address desc 1",
-      "severity": "severity 1",
-      "report_channel": "report channel 1",
-      "status": "ASSIGNED"
+      "address_desc": "幸福小区 3 栋整栋电压偏低",
+      "severity": "MEDIUM",
+      "report_channel": "95598",
+      "status": "OPEN",
+      "reported_at": "2026-09-25T00:02:00.000Z",
+      "master_id": null
     },
     {
       "id": 2,
-      "reporter_name": "reporter name 2",
+      "reporter_name": "李建国",
       "phone": "13800000002",
-      "asset_id": 2,
-      "fault_type": "TRIP",
-      "address_desc": "address desc 2",
-      "severity": "severity 2",
-      "report_channel": "report channel 2",
-      "status": "ARRIVED"
+      "asset_id": 1,
+      "fault_type": "VOLTAGE_LOW",
+      "address_desc": "幸福小区门口路灯也发暗",
+      "severity": "MEDIUM",
+      "report_channel": "95598",
+      "status": "MERGED",
+      "reported_at": "2026-09-25T00:11:00.000Z",
+      "master_id": 1
     },
     {
       "id": 3,
-      "reporter_name": "reporter name 3",
+      "reporter_name": "周晓峰",
       "phone": "13800000003",
+      "asset_id": 1,
+      "fault_type": "VOLTAGE_LOW",
+      "address_desc": "小区物业值班室反映空调带不动",
+      "severity": "MEDIUM",
+      "report_channel": "电话",
+      "status": "MERGED",
+      "reported_at": "2026-09-25T00:27:00.000Z",
+      "master_id": 1
+    },
+    {
+      "id": 4,
+      "reporter_name": "陈立群",
+      "phone": "13800000004",
+      "asset_id": 2,
+      "fault_type": "TRIP",
+      "address_desc": "工业园路口环网柜跳闸，企业停电",
+      "severity": "HIGH",
+      "report_channel": "95598",
+      "status": "OPEN",
+      "reported_at": "2026-09-25T01:05:00.000Z",
+      "master_id": null
+    },
+    {
+      "id": 5,
+      "reporter_name": "赵淑珍",
+      "phone": "13800000005",
       "asset_id": 3,
       "fault_type": "EQUIPMENT_DAMAGE",
-      "address_desc": "address desc 3",
-      "severity": "severity 3",
-      "report_channel": "report channel 3",
-      "status": "WAIT_DISPATCH"
+      "address_desc": "#2 台区配变有异响并冒烟",
+      "severity": "HIGH",
+      "report_channel": "95598",
+      "status": "OPEN",
+      "reported_at": "2026-09-25T01:40:00.000Z",
+      "master_id": null
+    },
+    {
+      "id": 6,
+      "reporter_name": "孙国强",
+      "phone": "13800000006",
+      "asset_id": 2,
+      "fault_type": "TRIP",
+      "address_desc": "工业园西门再次失电",
+      "severity": "MEDIUM",
+      "report_channel": "电话",
+      "status": "OPEN",
+      "reported_at": "2026-09-25T02:20:00.000Z",
+      "master_id": null
     }
   ],
   "repairTicket": [
     {
       "id": 1,
-      "fault_report_id": 1,
+      "fault_report_id": 4,
       "team_id": 1,
       "dispatcher_id": 1,
-      "priority": "priority 1",
+      "priority": "HIGH",
       "status": "ASSIGNED",
-      "assigned_at": "2026-06-11T09:00:00Z",
-      "restored_at": "2026-06-11T09:00:00Z"
+      "assigned_at": "2026-09-25T01:20:00.000Z",
+      "restored_at": null
     },
     {
       "id": 2,
-      "fault_report_id": 2,
+      "fault_report_id": 5,
       "team_id": 2,
-      "dispatcher_id": 2,
-      "priority": "priority 2",
-      "status": "ARRIVED",
-      "assigned_at": "2026-06-12T09:00:00Z",
-      "restored_at": "2026-06-12T09:00:00Z"
+      "dispatcher_id": 1,
+      "priority": "HIGH",
+      "status": "WAIT_DISPATCH",
+      "assigned_at": null,
+      "restored_at": null
     },
     {
       "id": 3,
-      "fault_report_id": 3,
+      "fault_report_id": 6,
       "team_id": 3,
-      "dispatcher_id": 3,
-      "priority": "priority 3",
+      "dispatcher_id": 1,
+      "priority": "MEDIUM",
       "status": "WAIT_DISPATCH",
-      "assigned_at": "2026-06-13T09:00:00Z",
-      "restored_at": "2026-06-13T09:00:00Z"
+      "assigned_at": null,
+      "restored_at": null
     }
   ],
   "crew": [
     {
       "id": 1,
-      "name": "name 1",
+      "name": "抢修一班",
       "leader_id": 1,
-      "skill_tags": "skill tags 1",
-      "duty_status": "ASSIGNED",
+      "skill_tags": "架空线路,配变",
+      "duty_status": "BUSY",
       "current_ticket_id": 1,
-      "contact_phone": "13800000001"
+      "contact_phone": "13900000001"
     },
     {
       "id": 2,
-      "name": "name 2",
+      "name": "抢修二班",
       "leader_id": 2,
-      "skill_tags": "skill tags 2",
-      "duty_status": "ARRIVED",
-      "current_ticket_id": 2,
-      "contact_phone": "13800000002"
+      "skill_tags": "环网柜,电缆",
+      "duty_status": "ON_DUTY",
+      "current_ticket_id": null,
+      "contact_phone": "13900000002"
     },
     {
       "id": 3,
-      "name": "name 3",
+      "name": "抢修三班",
       "leader_id": 3,
-      "skill_tags": "skill tags 3",
-      "duty_status": "WAIT_DISPATCH",
-      "current_ticket_id": 3,
-      "contact_phone": "13800000003"
+      "skill_tags": "配变,低压",
+      "duty_status": "ON_DUTY",
+      "current_ticket_id": null,
+      "contact_phone": "13900000003"
     }
   ],
   "sparePartUsage": [

@@ -1,1 +1,6 @@
-<script setup lang="ts">defineProps<{ title?: string }>();</script><template><div class="shared-widget"><strong>{{ title ?? "PriorityTag" }}</strong><span class="badge">READY</span></div></template>
+<script setup lang="ts">
+import { formatRisk } from "../../utils/formatters";
+defineProps<{ value: string }>();
+</script>
+
+<template><span class="priority-tag" :data-level="value">{{ formatRisk(value) }}</span></template>

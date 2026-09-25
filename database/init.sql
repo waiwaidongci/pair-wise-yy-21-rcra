@@ -18,7 +18,9 @@ CREATE TABLE IF NOT EXISTS fault_report (
   address_desc TEXT,
   severity TEXT,
   report_channel TEXT,
-  status TEXT
+  status TEXT,
+  reported_at TEXT,
+  master_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS repair_ticket (
